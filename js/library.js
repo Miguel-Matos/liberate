@@ -1,31 +1,40 @@
-let myLibrary = [];
-let index = 0;
-let add = document.querySelector("#add");
-let bookform = document.querySelector('#bookform')
-bookform.style.display = "none;"
+const myLibrary = [];
+// const index = 0;
+const add = document.querySelector('#add');
+const bookform = document.querySelector('#bookform');
+const submitbook = document.querySelector('#submitbook');
+bookform.style.display = 'none';
 
 function Book(title, author, pages, read) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.read = read
+  this.title = title;
+  this.author = author;
+  this.pages = pages;
+  this.read = read;
 }
 
-Book.prototype.info = function() {
-  return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read;
-}
-// const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
+// adds the info function to Book constructor
+Book.prototype.info = function () {
+  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+};
 
-// console.log(theHobbit.info());
-function addBookToLibrary () {
-  console.log("What is e?");
+// creates a new book object from the form info
+// adds book to the library
+function addBookToLibrary() {
+  const newBook = new Book(document.querySelector('#title').value, document.querySelector('#author').value, document.querySelector('#pages').value, document.querySelector('.yesno').value);
+  myLibrary.push(newBook);
 }
 
-add.addEventListener("click", (e) => {
-  
-  addBookToLibrary();
-  console.log(e);
+// opens the form
+add.addEventListener('click', () => {
+  bookform.style.display = 'block';
 });
 
-
-
+// after the form is filled and user pushes submit
+// calls addBookToLibrary and clears the form
+submitbook.addEventListener('click', (e) => {
+  e.preventDefault();
+  addBookToLibrary();
+  bookform.style.display = 'none';
+  console.log(myLibrary[0].info());
+  bookform.reset();
+});
