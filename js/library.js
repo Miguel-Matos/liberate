@@ -6,7 +6,7 @@ const add = document.querySelector('#add');
 const bookform = document.querySelector('#bookform');
 const submitbook = document.querySelector('#submitbook');
 const shelf = document.querySelector('#shelf');
-const bookOnShelf = document.createElement('div');
+const cancel = document.querySelector('#cancel');
 bookform.style.display = 'none';
 
 function Book(title, author, pages, read) {
@@ -16,6 +16,11 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+cancel.addEventListener('click', (e) => {
+  e.preventDefault();
+  bookform.style.display = 'none';
+  bookform.reset();
+});
 // adds the info function to Book constructor
 Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
@@ -44,6 +49,8 @@ add.addEventListener('click', () => {
 
 // displays the shelf
 function shelfDisplay() {
+  const bookOnShelf = document.createElement('div');
+  bookOnShelf.classList.add('bg-slate-100', 'p-5', 'rounded-lg', 'max-w-sm', 'text-center');
   for (let i = 0; i < myLibrary.length; i++) {
     bookOnShelf.textContent = myLibrary[i].info();
   }

@@ -10,32 +10,38 @@
   <title>Liberate</title>
 </head>
 <body>
-  <button id="add" class="bg-blue-300 rounded-lg px-3 py-2 mx-auto">Add Book</button>
+  <button id="add" class="bg-blue-300 rounded-lg px-3 py-2 mx-auto">New Book</button>
 
   <div id="shelf">
 
   </div>
   
-  <form action="" method="post" id="bookform" class="bg-slate-100 p-5 rounded-lg flex flex-col max-w-sm">
-    <label for="title">Title</label>
-    <input class="border" type="text" name="title" id="title" required>
-
-    <label for="author">Author</label>
-    <input class="border" type="text" name="author" id="author" required>
-
-    <label for="pages">Number of Pages</label>
-    <input class="border" type="number" name="pages" id="pages" required>
-
-    <fieldset>
-      <legend>Have you read this book?</legend>
-      <label for="read">Read</label>
-      <input type="radio" id="read" name="read" value="Read">
+  <form action="" method="post" id="bookform" class="bg-slate-100 p-5 rounded-lg max-w-sm mx-auto">
+    <div class="mx-auto text-center flex flex-col justify-center">
+      <label for="title">Title</label>
+      <input class="border mb-5" type="text" name="title" id="title" required>
   
-      <label for="notread">Not Read</label>
-      <input type="radio"  id="notread" name="read" value="Not Read">
-    </fieldset>
+      <label for="author">Author</label>
+      <input class="border mb-5" type="text" name="author" id="author" required>
+  
+      <label for="pages">Number of Pages</label>
+      <input class="border mb-5" type="number" name="pages" id="pages" required>
+  
+      <fieldset class="mb-5">
+        <legend>Have you read this book?</legend>
+        <label for="read">Read</label>
+        <input type="radio" id="read" name="read" value="Read">
+    
+        <label for="notread">Not Read</label>
+        <input type="radio"  id="notread" name="read" value="Not Read">
+      </fieldset>
+    </div>
 
-    <button type="submit" id="submitbook" class="bg-blue-300 rounded-lg px-3 py-2">Add Book</button>
+    <div class="flex justify-center gap-5">
+      <button type="submit" id="submitbook" class="bg-blue-300 rounded-lg px-3 py-2">Add Book</button>
+      <button type="button" id="cancel" class="bg-red-300 rounded-lg px-3 py-2 ">Cancel</button>
+    </div>
+
   </form>
 </body>
 </html>
