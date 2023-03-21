@@ -1,5 +1,8 @@
 let myLibrary = [];
 let index = 0;
+let add = document.querySelector("#add");
+let bookform = document.querySelector('#bookform')
+bookform.style.display = "none;"
 
 function Book(title, author, pages, read) {
   this.title = title
@@ -13,4 +16,16 @@ Book.prototype.info = function() {
 }
 // const theHobbit = new Book("The Hobbit", "J.R.R. Tolkien", 295, false);
 
-console.log(theHobbit.info());
+// console.log(theHobbit.info());
+function addBookToLibrary () {
+  console.log("What is e?");
+}
+
+add.addEventListener("click", (e) => {
+  
+  addBookToLibrary();
+  console.log(e);
+});
+
+
+

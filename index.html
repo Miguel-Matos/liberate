@@ -10,5 +10,30 @@
 </head>
 <body>
   <button id="add" class="bg-blue-300 rounded-lg px-3 py-2">Add</button>
+
+
+  <div class="shelf">
+
+  </div>
+  
+  <form action="" method="post" id="bookform" class="bg-slate-100 p-5 rounded-lg flex flex-col max-w-sm">
+    <label for="title">Title</label>
+    <input class="border" type="text" name="title" required>
+
+    <label for="author">Author</label>
+    <input class="border" type="text" name="author" required>
+
+    <label for="pages">Number of Pages</label>
+    <input class="border" type="text" name="pages" required>
+
+    <fieldset>
+      <legend>Have you read this book?</legend>
+      <label for="read">Yes</label>
+      <input type="radio" name="read" value="Yes">
+  
+      <label for="read">No</label>
+      <input type="radio" name="read" value="No">
+    </fieldset>
+  </form>
 </body>
 </html>
