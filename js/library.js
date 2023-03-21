@@ -7,6 +7,7 @@ const bookform = document.querySelector('#bookform');
 const submitbook = document.querySelector('#submitbook');
 const shelf = document.querySelector('#shelf');
 const cancel = document.querySelector('#cancel');
+let readCheck = false;
 bookform.style.display = 'none';
 
 function Book(title, author, pages, read) {
@@ -16,6 +17,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
+// closes and clears the form
 cancel.addEventListener('click', (e) => {
   e.preventDefault();
   bookform.style.display = 'none';
@@ -29,8 +31,10 @@ Book.prototype.info = function () {
 // Selects and adds appropriate whether book was read
 function radio() {
   if (document.getElementById('read').checked) {
+    readCheck = true;
     return 'Read';
   } else if (document.getElementById('notread').checked) {
+    readCheck = false;
     return 'Not Read';
   }
 }
@@ -49,11 +53,21 @@ add.addEventListener('click', () => {
 
 // displays the shelf
 function shelfDisplay() {
+  const remove = document.createElement('button');
+  const bookRead = document.createElement('button');
+  bookRead.classList.add('bg-blue-300', 'rounded-lg', 'px-3', 'py-2');
+  bookRead.innerText = 'Read';
+  remove.classList.add('bg-red-300', 'rounded-lg', 'px-3', 'py-2');
+  remove.innerText = 'Remove';
   const bookOnShelf = document.createElement('div');
   bookOnShelf.classList.add('bg-slate-100', 'p-5', 'rounded-lg', 'max-w-sm', 'text-center');
   for (let i = 0; i < myLibrary.length; i++) {
     bookOnShelf.textContent = myLibrary[i].info();
   }
+  if (readCheck === false) {
+    bookOnShelf.appendChild(bookRead);
+  }
+  bookOnShelf.appendChild(remove);
   shelf.appendChild(bookOnShelf);
 }
 // after the form is filled and user pushes submit
