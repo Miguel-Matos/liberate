@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/dist/output.css" rel="stylesheet">
   <script src="js/library.js" defer></script>
+  <script src="js/shelf.js" defer></script>
   <title>Liberate</title>
 </head>
 <body>
-  <button id="add" class="bg-blue-300 rounded-lg px-3 py-2">Add Book</button>
+  <button id="add" class="bg-blue-300 rounded-lg px-3 py-2 mx-auto">Add Book</button>
 
-
-  <div class="shelf">
+  <div id="shelf">
 
   </div>
   
@@ -29,10 +29,10 @@
     <fieldset>
       <legend>Have you read this book?</legend>
       <label for="read">Yes</label>
-      <input type="radio" name="read" class="yesno" value="Yes">
+      <input type="radio" name="read" class="yesno" value="Read">
   
       <label for="read">No</label>
-      <input type="radio" name="read" class="yesno" value="No">
+      <input type="radio" name="read" class="yesno" value="Not Read">
     </fieldset>
 
     <button type="submit" id="submitbook" class="bg-blue-300 rounded-lg px-3 py-2">Add Book</button>

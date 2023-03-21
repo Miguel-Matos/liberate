@@ -1,8 +1,9 @@
 const myLibrary = [];
-// const index = 0;
 const add = document.querySelector('#add');
 const bookform = document.querySelector('#bookform');
 const submitbook = document.querySelector('#submitbook');
+const shelf = document.querySelector('#shelf');
+const bookOnShelf = document.createElement('div');
 bookform.style.display = 'none';
 
 function Book(title, author, pages, read) {
@@ -29,12 +30,19 @@ add.addEventListener('click', () => {
   bookform.style.display = 'block';
 });
 
+// displays the shelf
+function shelfDisplay() {
+  bookOnShelf.textContent = myLibrary[0].info();
+  shelf.appendChild(bookOnShelf);
+}
+
 // after the form is filled and user pushes submit
 // calls addBookToLibrary and clears the form
 submitbook.addEventListener('click', (e) => {
   e.preventDefault();
   addBookToLibrary();
   bookform.style.display = 'none';
-  console.log(myLibrary[0].info());
+  shelfDisplay();
+  // console.log(myLibrary[0].info());
   bookform.reset();
 });

@@ -513,16 +513,21 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
 
 .max-w-sm {
   max-width: 24rem;
-}
-
-.flex-row {
-  flex-direction: row;
 }
 
 .flex-col {
