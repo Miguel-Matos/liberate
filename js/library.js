@@ -26,7 +26,7 @@ cancel.addEventListener('click', (e) => {
 });
 // adds the info function to Book constructor
 Book.prototype.info = function () {
-  return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
+  return `${this.title} by ${this.author}, ${this.pages} pages`;
 };
 
 Book.prototype.count = function () {
