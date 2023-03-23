@@ -7,6 +7,7 @@ const bookform = document.querySelector('#bookform');
 const submitbook = document.querySelector('#submitbook');
 const shelf = document.querySelector('#shelf');
 const cancel = document.querySelector('#cancel');
+let count = 0;
 let readCheck = false;
 bookform.style.display = 'none';
 
@@ -28,6 +29,11 @@ Book.prototype.info = function () {
   return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}`;
 };
 
+Book.prototype.count = function () {
+  this.position = count;
+  return count++;
+};
+
 // Selects and adds appropriate whether book was read
 function radio() {
   if (document.getElementById('read').checked) {
@@ -43,6 +49,7 @@ function radio() {
 // adds book to the library
 function addBookToLibrary() {
   const newBook = new Book(document.querySelector('#title').value, document.querySelector('#author').value, document.querySelector('#pages').value, radio());
+  newBook.count();
   myLibrary.push(newBook);
 }
 
@@ -69,6 +76,25 @@ function shelfDisplay() {
   }
   bookOnShelf.appendChild(remove);
   shelf.appendChild(bookOnShelf);
+
+  // Functionality of remove button
+  remove.addEventListener('click', () => {
+    count--;
+    // removes from array
+    for (let i = 0; i < myLibrary.length; i++) {
+      if (i === myLibrary[i].position) {
+        myLibrary.splice(i, 1);
+        break;
+      }
+    }
+    // removes from shelf
+    shelf.removeChild(bookOnShelf);
+
+    // updates position in array
+    for (let i = 0; i < myLibrary.length; i++) {
+      myLibrary[i].position = i;
+    }
+  });
 }
 // after the form is filled and user pushes submit
 // calls addBookToLibrary and clears the form
