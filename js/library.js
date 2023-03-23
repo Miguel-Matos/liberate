@@ -67,13 +67,21 @@ function shelfDisplay() {
   remove.classList.add('bg-red-300', 'rounded-lg', 'px-3', 'py-2');
   remove.innerText = 'Remove';
   const bookOnShelf = document.createElement('div');
-  bookOnShelf.classList.add('bg-slate-100', 'p-5', 'rounded-lg', 'max-w-sm', 'text-center');
+  bookOnShelf.classList.add('bg-slate-200', 'p-5', 'rounded-lg', 'max-w-sm', 'text-center', 'flex', 'flex-col', 'gap-5');
   for (let i = 0; i < myLibrary.length; i++) {
     bookOnShelf.textContent = myLibrary[i].info();
   }
+
+  // chooses appropriate read button
   if (readCheck === false) {
     bookOnShelf.appendChild(bookRead);
+  } else {
+    bookRead.classList.remove('bg-blue-300');
+    bookRead.classList.add('bg-green-300');
+    bookRead.disabled = true;
+    bookOnShelf.appendChild(bookRead);
   }
+
   bookOnShelf.appendChild(remove);
   shelf.appendChild(bookOnShelf);
 
@@ -94,6 +102,12 @@ function shelfDisplay() {
     for (let i = 0; i < myLibrary.length; i++) {
       myLibrary[i].position = i;
     }
+  });
+
+  bookRead.addEventListener('click', () => {
+    bookRead.classList.remove('bg-blue-300');
+    bookRead.classList.add('bg-green-300');
+    bookRead.disabled = true;
   });
 }
 // after the form is filled and user pushes submit
