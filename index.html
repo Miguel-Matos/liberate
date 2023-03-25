@@ -10,11 +10,11 @@
   <title>Liberate</title>
 </head>
 <body class="bg-slate-100">
-  <nav class="bg-slate-200 h-20 flex items-center mb-16">
+  <nav class="bg-slate-200 h-20 flex items-center shadow-md mb-16">
     <h1 class="text-4xl ml-5">Liberate</h1>
   </nav>
   <div class="flex justify-center mb-16">
-    <button id="add" class="bg-blue-300 rounded-lg px-5 py-4 text-2xl">New Book</button>
+    <button id="add" class="bg-blue-300 rounded-lg px-5 py-4 hover:shadow-lg text-2xl">New Book</button>
   </div>
   <div class="flex justify-center">
     <div id="shelf" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 justify-self-stretch">
@@ -25,27 +25,27 @@
     <form action="" method="post" id="bookform" class="bg-slate-200 p-5 rounded-lg absolute top-28">
       <div class="mx-auto text-center flex flex-col justify-center">
         <label for="title">Title</label>
-        <input class="border mb-5 px-3" type="text" name="title" id="title" required>
+        <input class="border mb-5 hover:bg-slate-100 focus:bg-slate-100 px-3" type="text" name="title" id="title" required>
     
         <label for="author">Author</label>
-        <input class="border mb-5 px-3" type="text" name="author" id="author" required>
+        <input class="border mb-5 hover:bg-slate-100 focus:bg-slate-100 px-3" type="text" name="author" id="author" required>
     
         <label for="pages">Number of Pages</label>
-        <input class="border mb-5 px-3" type="number" name="pages" id="pages" min="1" required>
+        <input class="border mb-5 hover:bg-slate-100 focus:bg-slate-100 px-3" type="number" name="pages" id="pages" min="1" required>
     
         <fieldset class="mb-5">
           <legend>Have you read this book?</legend>
           <label for="read">Read</label>
-          <input type="radio" id="read" name="read" value="Read">
+          <input type="radio" class="hover:shadow-md" id="read" name="read" value="Read">
       
           <label for="notread">Not Read</label>
-          <input type="radio"  id="notread" name="read" value="Not Read">
+          <input type="radio" class="hover:shadow-md" id="notread" name="read" value="Not Read">
         </fieldset>
       </div>
   
       <div class="flex justify-center gap-5">
-        <button type="submit" id="submitbook" class="bg-blue-300 rounded-lg px-3 py-2">Add Book</button>
-        <button type="button" id="cancel" class="bg-red-300 rounded-lg px-3 py-2">Cancel</button>
+        <button type="submit" id="submitbook" class="bg-blue-300 hover:shadow-lg rounded-lg px-3 py-2">Add Book</button>
+        <button type="button" id="cancel" class="bg-red-300 hover:shadow-lg  rounded-lg px-3 py-2">Cancel</button>
       </div>
     </form>
   </div>

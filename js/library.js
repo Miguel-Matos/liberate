@@ -62,12 +62,12 @@ add.addEventListener('click', () => {
 function shelfDisplay() {
   const remove = document.createElement('button');
   const bookRead = document.createElement('button');
-  bookRead.classList.add('bg-blue-300', 'rounded-lg', 'px-3', 'py-2');
+  bookRead.classList.add('bg-blue-300', 'rounded-lg', 'px-3', 'py-2', 'hover:shadow-lg');
   bookRead.innerText = 'Read';
-  remove.classList.add('bg-red-300', 'rounded-lg', 'px-3', 'py-2');
+  remove.classList.add('bg-red-300', 'rounded-lg', 'px-3', 'py-2', 'hover:shadow-lg');
   remove.innerText = 'Remove';
   const bookOnShelf = document.createElement('div');
-  bookOnShelf.classList.add('bg-slate-200', 'p-5', 'rounded-lg', 'max-w-sm', 'text-center', 'flex', 'flex-col', 'gap-5');
+  bookOnShelf.classList.add('bg-slate-200', 'p-5', 'rounded-lg', 'max-w-sm', 'text-center', 'flex', 'flex-col', 'gap-5', 'hover:shadow-lg');
   for (let i = 0; i < myLibrary.length; i++) {
     bookOnShelf.textContent = myLibrary[i].info();
   }
