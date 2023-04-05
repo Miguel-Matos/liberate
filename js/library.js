@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 /* eslint-disable consistent-return */
 /* eslint-disable no-else-return */
 /* eslint-disable no-plusplus */
@@ -11,11 +12,20 @@ let count = 0;
 let readCheck = false;
 bookform.style.display = 'none';
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+// function Book(title, author, pages, read) {
+//   this.title = title;
+//   this.author = author;
+//   this.pages = pages;
+//   this.read = read;
+// }
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 // closes and clears the form
@@ -117,6 +127,5 @@ submitbook.addEventListener('click', (e) => {
   addBookToLibrary();
   bookform.style.display = 'none';
   shelfDisplay();
-  console.log(myLibrary);
   bookform.reset();
 });
